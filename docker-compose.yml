@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  node-exporter:
+    image: prom/node-exporter:v0.17.0
+    ports:
+      - 9100:9100
+
+  cadvisor:
+    image: google/cadvisor
+    ports:
+      - 8080:8080
+
+  grafana:
+    image: grafana/grafana:5.4.3
+    volumes:
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    ports:
+      - 3000:3000
+
+  prometheus:
+    image: prom/prometheus:v2.7.1
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+    ports:
+      - 9090:9090
