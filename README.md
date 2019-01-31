@@ -32,9 +32,13 @@ You need to have `docker-compose` on your system.
 
     `docker-compose ps`
 
+    ![ps](screenshots/docker-compose-ps.png)
+
 1. Go to http://localhost:3000 to access Grafana. Username is `admin` and password is also `admin`.
 
 1. On the main screen click on the "Docker Prometheus Monitoring" dashboard.
+
+    ![dashboard](screenshots/dashboard.png)
 
 1. In the end if you want to shut down everything run
 
