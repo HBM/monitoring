@@ -18,7 +18,7 @@ You need to have `docker-compose` on your system.
 
 1. Clone the repository
 
-    `git clone git@github.com:HBM/monitoring.git`
+    `git clone git@github.com:hbm/monitoring.git`
 
 1. Go into the newly created folder
 
@@ -28,14 +28,36 @@ You need to have `docker-compose` on your system.
 
     `docker-compose up -d`
 
-1. Go to []()
+1. Make sure all containers are running
 
-## Where are the other services?
+    `docker-compose ps`
 
+1. Go to http://localhost:3000 to access Grafana. Username is `admin` and password is also `admin`.
 
+1. On the main screen click on the "Docker Prometheus Monitoring" dashboard.
 
-grafana login: admin, admin
+1. In the end if you want to shut down everything run
 
-docker-compose up -d
+    `docker-compose down`
 
-cAdvisor: container metrics collector
+## Where are my other services?
+
+1. node_exporter: http://localhost:9100
+1. cadvisor: http://localhost:8080
+1. prometheus: http://localhost:9090
+
+## Development
+
+As you can see everything is configured via `.yml` files.
+
+`docker-compose.yml`
+
+If you want to add another service, e.g. backend application (Go, PHP, Python, Node.js, Java, etc.) or database/cache (PostgreSQL, Redis, etc.) this is where to add it.
+
+`prometheus/prometheus.yml`
+
+Do you want to add another scrape target? Change the scraping frequency? Do it here.
+
+`grafana/...`
+
+Change the datasource for Grafana or install a new dashboard.
